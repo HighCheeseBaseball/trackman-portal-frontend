@@ -9,11 +9,18 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [showAdminLogin, setShowAdminLogin] = useState(false);
 
+  console.log('App state:', { user, isAdmin, showAdminLogin }); // Debug log
+
   if (showAdminLogin) {
-    return <AdminLogin onLogin={() => setIsAdmin(true)} />;
+    console.log('Showing admin login'); // Debug log
+    return <AdminLogin onLogin={() => {
+      console.log('Admin login successful, setting isAdmin to true'); // Debug log
+      setIsAdmin(true);
+    }} />;
   }
 
   if (isAdmin) {
+    console.log('Showing admin panel'); // Debug log
     return <AdminPanel />;
   }
 
@@ -21,7 +28,10 @@ function App() {
     return (
       <div>
         <Login onLogin={setUser} />
-        <button onClick={() => setShowAdminLogin(true)} style={{ margin: 20 }}>
+        <button onClick={() => {
+          console.log('Admin login button clicked'); // Debug log
+          setShowAdminLogin(true);
+        }} style={{ margin: 20 }}>
           Admin Login
         </button>
       </div>
