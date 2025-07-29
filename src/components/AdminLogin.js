@@ -6,6 +6,7 @@ export default function AdminLogin({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log('Admin login attempt:', { username, password }); // Debug log
     
     fetch('https://trackman-portal-backend.onrender.com/api/admin/login', {
       method: 'POST',
@@ -14,15 +15,21 @@ export default function AdminLogin({ onLogin }) {
       },
       body: JSON.stringify({ username, password }),
     })
-    .then(res => res.json())
+    .then(res => {
+      console.log('Response status:', res.status); // Debug log
+      return res.json();
+    })
     .then(data => {
+      console.log('Admin login response:', data); // Debug log
       if (data.success) {
+        console.log('Admin login successful, calling onLogin'); // Debug log
         onLogin();
       } else {
         alert('Invalid admin credentials');
       }
     })
     .catch(err => {
+      console.error('Admin login error:', err); // Debug log
       alert('Login failed');
     });
   }
