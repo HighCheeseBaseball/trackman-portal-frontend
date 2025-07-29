@@ -14,8 +14,9 @@ function App() {
   if (showAdminLogin) {
     console.log('Showing admin login'); // Debug log
     return <AdminLogin onLogin={() => {
-      console.log('Admin login successful, setting isAdmin to true'); // Debug log
+      console.log('Admin login successful, setting isAdmin to true and hiding admin login'); // Debug log
       setIsAdmin(true);
+      setShowAdminLogin(false); // This was missing!
     }} />;
   }
 
