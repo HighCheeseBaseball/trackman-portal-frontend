@@ -23,7 +23,7 @@ export default function Login({ onLogin }) {
     try {
       if (isSignUp) {
         // Register new user
-        const response = await axios.post('http://localhost:3001/api/register', {
+        const response = await axios.post('https://trackman-portal-backend.onrender.com/api/register', {
           username,
           password,
           name: name || username,
@@ -40,7 +40,7 @@ export default function Login({ onLogin }) {
         }
       } else {
         // Login existing user
-        const response = await axios.post('http://localhost:3001/api/login', {
+        const response = await axios.post('https://trackman-portal-backend.onrender.com/api/login', {
           username,
           password
         });
@@ -158,9 +158,4 @@ export default function Login({ onLogin }) {
             textDecoration: 'underline'
           }}
         >
-          {isSignUp ? "Already have an account? Login" : "Don't have an account? Sign Up"}
-        </button>
-      </div>
-    </div>
-  );
-}
+          {isSignUp ? "Already have an ac
