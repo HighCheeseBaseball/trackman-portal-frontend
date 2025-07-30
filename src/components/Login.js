@@ -76,7 +76,7 @@ export default function Login({ onLogin }) {
           <div style={{ marginBottom: 15 }}>
             <input
               type="text"
-              placeholder="Full Name"
+              placeholder="Full Name (optional)"
               value={name}
               onChange={e => setName(e.target.value)}
               style={{ width: '100%', padding: 10, fontSize: 16 }}
@@ -88,7 +88,7 @@ export default function Login({ onLogin }) {
           <div style={{ marginBottom: 15 }}>
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email (optional)"
               value={email}
               onChange={e => setEmail(e.target.value)}
               style={{ width: '100%', padding: 10, fontSize: 16 }}
@@ -158,4 +158,9 @@ export default function Login({ onLogin }) {
             textDecoration: 'underline'
           }}
         >
-          {isSignUp ? "Already have an ac
+          {isSignUp ? "Already have an account? Login" : "Don't have an account? Sign Up"}
+        </button>
+      </div>
+    </div>
+  );
+}
