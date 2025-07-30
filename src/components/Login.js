@@ -76,7 +76,7 @@ export default function Login({ onLogin }) {
           <div style={{ marginBottom: 15 }}>
             <input
               type="text"
-              placeholder="Full Name (optional)"
+              placeholder="Full Name"
               value={name}
               onChange={e => setName(e.target.value)}
               style={{ width: '100%', padding: 10, fontSize: 16 }}
