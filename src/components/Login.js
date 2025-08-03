@@ -8,6 +8,7 @@ export default function Login({ onLogin }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [pitcherId, setPitcherId] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
@@ -27,7 +28,8 @@ export default function Login({ onLogin }) {
           username,
           password,
           name: name || username,
-          email: email || `${username}@example.com`
+          email: email || `${username}@example.com`,
+          pitcherId
         });
         
         if (response.data.success) {
@@ -37,6 +39,7 @@ export default function Login({ onLogin }) {
           setConfirmPassword('');
           setName('');
           setEmail('');
+          setPitcherId('');
         }
       } else {
         // Login existing user
@@ -96,6 +99,19 @@ export default function Login({ onLogin }) {
           </div>
         )}
         
+        {isSignUp && (
+          <div style={{ marginBottom: 15 }}>
+            <input
+              type="text"
+              placeholder="PitcherID (contact coach for access)"
+              value={pitcherId}
+              onChange={e => setPitcherId(e.target.value)}
+              required
+              style={{ width: '100%', padding: 10, fontSize: 16 }}
+            />
+          </div>
+        )}
+        
         <div style={{ marginBottom: 15 }}>
           <input
             type="password"
@@ -148,6 +164,7 @@ export default function Login({ onLogin }) {
             setConfirmPassword('');
             setName('');
             setEmail('');
+            setPitcherId('');
           }}
           disabled={loading}
           style={{ 
